@@ -1,0 +1,11 @@
+@SimpleTicket2.Server_HostAddress = http://localhost:5173
+
+GET {{SimpleTicket2.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{SimpleTicket2.Server_HostAddress}}/ticket/
+Accept: application/json
+
+###
