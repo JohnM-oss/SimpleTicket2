@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SimpleTicket2.Server.Models;
 
 namespace SimpleTicket2.Server.Controllers
 {

@@ -1,4 +1,4 @@
-namespace SimpleTicket2.Server
+namespace SimpleTicket2.Server.Models
 {
     public class WeatherForecast
     {

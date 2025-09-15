@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SimpleTicket2.Server
+namespace SimpleTicket2.Server.Models
 {
     public enum TicketStatus
     {

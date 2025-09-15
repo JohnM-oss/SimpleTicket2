@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleTicket2.Server.Data;
-using SimpleTicket2.Server;
 using System.Linq.Dynamic.Core;
+using SimpleTicket2.Server.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,11 +25,18 @@ namespace SimpleTicket2.Server.Controllers
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 10,
             [FromQuery] string? sortBy = null,
-            [FromQuery] bool sortDesc = false
+            [FromQuery] bool sortDesc = false,
+            [FromQuery] TicketStatus? status = null
         )
         {
             var query = _context.Tickets.AsQueryable();
-            if(!string.IsNullOrEmpty(sortBy))
+
+            if (status.HasValue)
+            {
+                query = query.Where(t => t.Status == status.Value);
+            }
+
+            if (!string.IsNullOrEmpty(sortBy))
             {
                 var sortOrder = sortDesc ? "descending" : "ascending";
                 query = query.OrderBy($"{sortBy} {sortOrder}");
